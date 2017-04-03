@@ -8,24 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		555C1ACB1E92B09C00C8EE95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C1ACA1E92B09C00C8EE95 /* AppDelegate.swift */; };
-		555C1ACD1E92B09C00C8EE95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C1ACC1E92B09C00C8EE95 /* ViewController.swift */; };
 		555C1AD01E92B09C00C8EE95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 555C1ACE1E92B09C00C8EE95 /* Main.storyboard */; };
 		555C1AD21E92B09C00C8EE95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 555C1AD11E92B09C00C8EE95 /* Assets.xcassets */; };
 		555C1AD51E92B09C00C8EE95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 555C1AD31E92B09C00C8EE95 /* LaunchScreen.storyboard */; };
 		555C1AE31E92C9C000C8EE95 /* GitHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C1AE21E92C9C000C8EE95 /* GitHub.swift */; };
 		555C1AE51E92CA0900C8EE95 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C1AE41E92CA0900C8EE95 /* Credentials.swift */; };
+		555C1AE71E92CE4F00C8EE95 /* GitHubAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C1AE61E92CE4F00C8EE95 /* GitHubAuthController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		555C1AC71E92B09C00C8EE95 /* GoGoGithub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoGoGithub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		555C1ACA1E92B09C00C8EE95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		555C1ACC1E92B09C00C8EE95 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		555C1ACF1E92B09C00C8EE95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		555C1AD11E92B09C00C8EE95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		555C1AD41E92B09C00C8EE95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		555C1AD61E92B09C00C8EE95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		555C1AE21E92C9C000C8EE95 /* GitHub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHub.swift; sourceTree = "<group>"; };
 		555C1AE41E92CA0900C8EE95 /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		555C1AE61E92CE4F00C8EE95 /* GitHubAuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAuthController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +89,7 @@
 		555C1ADE1E92B28800C8EE95 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				555C1ACC1E92B09C00C8EE95 /* ViewController.swift */,
+				555C1AE61E92CE4F00C8EE95 /* GitHubAuthController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -176,8 +176,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				555C1AE31E92C9C000C8EE95 /* GitHub.swift in Sources */,
-				555C1ACD1E92B09C00C8EE95 /* ViewController.swift in Sources */,
 				555C1AE51E92CA0900C8EE95 /* Credentials.swift in Sources */,
+				555C1AE71E92CE4F00C8EE95 /* GitHubAuthController.swift in Sources */,
 				555C1ACB1E92B09C00C8EE95 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

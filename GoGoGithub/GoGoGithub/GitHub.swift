@@ -8,11 +8,38 @@
 
 import UIKit
 
+let kOAuthBaseURLString = "https://github.com/login/oauth/"
+
+enum GitHubAuthError: Error {
+    case extractingCode
+}
+
 class GitHub {
     
-    let gitHubClientID = kGitHubClientID
-    let gitHubClientSecret = kGitHubClientSecret
-    
     static let shared = GitHub()
+    
+    func oAuthRequestWith(parameters: [String: String]) {
+        var parametersString = ""
+        
+        for (key, value) in parameters {
+            parametersString += "&\(key)=\(value)"
+        }
+        
+        print("Parameters String: \(parametersString)")
+        
+        if let requestURL = URL(string: "\(kOAuthBaseURLString)aurthorize?client_id=\(kGitHubClientID)\(parametersString)") {
+            
+           print(requestURL.absoluteString)
+            
+        }
+    }
+    
+    func getCodeFrom(url: URL) throws -> String {
+        
+        guard let code = url.absoluteString.components(separatedBy: "=").last else { throw GitHubAuthError.extractingCode }
+        
+        return code
+    }
+    
     
 }
