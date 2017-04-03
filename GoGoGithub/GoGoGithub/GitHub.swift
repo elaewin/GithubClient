@@ -13,7 +13,7 @@ let kOAuthBaseURLString = "https://github.com/login/oauth/"
 typealias GitHubOAuthCompletion = (Bool) -> ()
 
 enum GitHubAuthError: Error {
-    case extractingCode
+    case extractingCode(String)
 }
 
 enum SaveOptions {
@@ -23,6 +23,8 @@ enum SaveOptions {
 class GitHub {
     
     static let shared = GitHub()
+    
+    private init() {}
     
     func oAuthRequestWith(parameters: [String: String]) {
         var parametersString = ""
@@ -43,14 +45,14 @@ class GitHub {
     
     func getCodeFrom(url: URL) throws -> String {
         
-        guard let code = url.absoluteString.components(separatedBy: "=").last else { throw GitHubAuthError.extractingCode }
+        guard let code = url.absoluteString.components(separatedBy: "=").last else { throw GitHubAuthError.extractingCode("Temporary code not found in string. See getCodeFrom(url:).") }
         
         return code
     }
     
     func tokenRequestFor(url: URL, saveOption: SaveOptions, completion: @escaping GitHubOAuthCompletion) {
         
-        func complete(success: Bool) {
+        func returnToMainWith(success: Bool) {
             OperationQueue.main.addOperation {
                 completion(success)
             }
@@ -66,13 +68,16 @@ class GitHub {
                 
                 session.dataTask(with: requestURL, completionHandler: { (data, response, error) in
                     
-                    if error != nil { complete(success: false) }
+                    if error != nil { returnToMainWith(success: false) }
                     
-                    guard let data = data else { complete(success: false); return }
+                    guard let data = data else { returnToMainWith(success: false); return }
                     
                     if let dataString = String(data: data, encoding: .utf8) {
-                        print(dataString)
-                        complete(success: true)
+                        print("My token is: \(dataString)")
+                        
+                        let success = UserDefaults.standard.save(accessToken: dataString)
+                        
+                        returnToMainWith(success: success)
                     }
                     
                 }).resume()
@@ -80,7 +85,7 @@ class GitHub {
             
         } catch {
             print(error)
-            complete(success: false)
+            returnToMainWith(success: false)
         }
         
         
