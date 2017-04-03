@@ -1,5 +1,6 @@
-# Credentials file
-/Credentials.swift
+### Credentials file
+
+Credentials.*
 
 # Created by https://www.gitignore.io/api/osx,swift,xcode,objective-c
 
