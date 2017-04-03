@@ -12,6 +12,8 @@
 		555C1AD01E92B09C00C8EE95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 555C1ACE1E92B09C00C8EE95 /* Main.storyboard */; };
 		555C1AD21E92B09C00C8EE95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 555C1AD11E92B09C00C8EE95 /* Assets.xcassets */; };
 		555C1AD51E92B09C00C8EE95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 555C1AD31E92B09C00C8EE95 /* LaunchScreen.storyboard */; };
+		555C1AE31E92C9C000C8EE95 /* GitHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C1AE21E92C9C000C8EE95 /* GitHub.swift */; };
+		555C1AE51E92CA0900C8EE95 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C1AE41E92CA0900C8EE95 /* Credentials.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		555C1AD11E92B09C00C8EE95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		555C1AD41E92B09C00C8EE95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		555C1AD61E92B09C00C8EE95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		555C1AE21E92C9C000C8EE95 /* GitHub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHub.swift; sourceTree = "<group>"; };
+		555C1AE41E92CA0900C8EE95 /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +58,48 @@
 		555C1AC91E92B09C00C8EE95 /* GoGoGithub */ = {
 			isa = PBXGroup;
 			children = (
-				555C1ACA1E92B09C00C8EE95 /* AppDelegate.swift */,
-				555C1ACC1E92B09C00C8EE95 /* ViewController.swift */,
-				555C1ACE1E92B09C00C8EE95 /* Main.storyboard */,
-				555C1AD11E92B09C00C8EE95 /* Assets.xcassets */,
-				555C1AD31E92B09C00C8EE95 /* LaunchScreen.storyboard */,
-				555C1AD61E92B09C00C8EE95 /* Info.plist */,
+				555C1AE11E92C97600C8EE95 /* Model */,
+				555C1ADC1E92B24900C8EE95 /* View */,
+				555C1ADE1E92B28800C8EE95 /* Controller */,
+				555C1ADD1E92B27300C8EE95 /* Supporting */,
 			);
 			path = GoGoGithub;
+			sourceTree = "<group>";
+		};
+		555C1ADC1E92B24900C8EE95 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				555C1ACE1E92B09C00C8EE95 /* Main.storyboard */,
+				555C1AD31E92B09C00C8EE95 /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		555C1ADD1E92B27300C8EE95 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				555C1AE41E92CA0900C8EE95 /* Credentials.swift */,
+				555C1ACA1E92B09C00C8EE95 /* AppDelegate.swift */,
+				555C1AD11E92B09C00C8EE95 /* Assets.xcassets */,
+				555C1AD61E92B09C00C8EE95 /* Info.plist */,
+			);
+			name = Supporting;
+			sourceTree = "<group>";
+		};
+		555C1ADE1E92B28800C8EE95 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				555C1ACC1E92B09C00C8EE95 /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		555C1AE11E92C97600C8EE95 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				555C1AE21E92C9C000C8EE95 /* GitHub.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +175,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				555C1AE31E92C9C000C8EE95 /* GitHub.swift in Sources */,
 				555C1ACD1E92B09C00C8EE95 /* ViewController.swift in Sources */,
+				555C1AE51E92CA0900C8EE95 /* Credentials.swift in Sources */,
 				555C1ACB1E92B09C00C8EE95 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

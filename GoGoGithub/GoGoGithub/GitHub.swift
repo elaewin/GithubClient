@@ -6,4 +6,13 @@
 //  Copyright © 2017 Erica Winberry. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class GitHub {
+    
+    let gitHubClientID = kGitHubClientID
+    let gitHubClientSecret = kGitHubClientSecret
+    
+    static let shared = GitHub()
+    
+}

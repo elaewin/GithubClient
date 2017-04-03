@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+let kGitHubClientID = "a5dedb2230658f9e92ce"
+let kGitHubClientSecret = "84d2e138cc532b373d73384b30ecfd507250eeb6"
+
