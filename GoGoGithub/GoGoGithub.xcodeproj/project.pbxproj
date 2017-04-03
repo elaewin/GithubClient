@@ -14,6 +14,7 @@
 		555C1AE31E92C9C000C8EE95 /* GitHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C1AE21E92C9C000C8EE95 /* GitHub.swift */; };
 		555C1AE51E92CA0900C8EE95 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C1AE41E92CA0900C8EE95 /* Credentials.swift */; };
 		555C1AE71E92CE4F00C8EE95 /* GitHubAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C1AE61E92CE4F00C8EE95 /* GitHubAuthController.swift */; };
+		555C1AE91E92EC0100C8EE95 /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C1AE81E92EC0100C8EE95 /* FoundationExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		555C1AE21E92C9C000C8EE95 /* GitHub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHub.swift; sourceTree = "<group>"; };
 		555C1AE41E92CA0900C8EE95 /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		555C1AE61E92CE4F00C8EE95 /* GitHubAuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAuthController.swift; sourceTree = "<group>"; };
+		555C1AE81E92EC0100C8EE95 /* FoundationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 		555C1ADD1E92B27300C8EE95 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				555C1AE81E92EC0100C8EE95 /* FoundationExtensions.swift */,
 				555C1AE41E92CA0900C8EE95 /* Credentials.swift */,
 				555C1ACA1E92B09C00C8EE95 /* AppDelegate.swift */,
 				555C1AD11E92B09C00C8EE95 /* Assets.xcassets */,
@@ -176,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				555C1AE31E92C9C000C8EE95 /* GitHub.swift in Sources */,
+				555C1AE91E92EC0100C8EE95 /* FoundationExtensions.swift in Sources */,
 				555C1AE51E92CA0900C8EE95 /* Credentials.swift in Sources */,
 				555C1AE71E92CE4F00C8EE95 /* GitHubAuthController.swift in Sources */,
 				555C1ACB1E92B09C00C8EE95 /* AppDelegate.swift in Sources */,

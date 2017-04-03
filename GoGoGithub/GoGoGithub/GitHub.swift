@@ -10,8 +10,14 @@ import UIKit
 
 let kOAuthBaseURLString = "https://github.com/login/oauth/"
 
+typealias GitHubOAuthCompletion = (Bool) -> ()
+
 enum GitHubAuthError: Error {
     case extractingCode
+}
+
+enum SaveOptions {
+    case userDefaults
 }
 
 class GitHub {
@@ -27,10 +33,11 @@ class GitHub {
         
         print("Parameters String: \(parametersString)")
         
-        if let requestURL = URL(string: "\(kOAuthBaseURLString)aurthorize?client_id=\(kGitHubClientID)\(parametersString)") {
+        if let requestURL = URL(string: "\(kOAuthBaseURLString)authorize?client_id=\(kGitHubClientID)\(parametersString)") {
             
-           print(requestURL.absoluteString)
+            print(requestURL.absoluteString)
             
+            UIApplication.shared.open(requestURL)
         }
     }
     
@@ -41,5 +48,13 @@ class GitHub {
         return code
     }
     
-    
+    func tokenRequestFor(url: URL, saveOption: SaveOptions, completion: @escaping GitHubOAuthCompletion) {
+        
+        func complete(success: Bool) {
+            OperationQueue.main.addOperation {
+                completion(success)
+            }
+        }
+        
+    }
 }

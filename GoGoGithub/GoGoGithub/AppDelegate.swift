@@ -16,7 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
 
-        print(url)
+        let code = try? GitHub.shared.getCodeFrom(url: url)
+        
+        print(code ?? "No code found.")
         
         return true
     }
