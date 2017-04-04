@@ -37,16 +37,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 //        let code = try? GitHub.shared.getCodeFrom(url: url)
         
-//        print(code ?? "No code found.")
-        
         if let access_token = UserDefaults.standard.getAccessToken() {
             print("Login unnecessary: Access token \(access_token) already exists!")
         } else {
             GitHub.shared.tokenRequestFor(url: url, saveOption: .userDefaults) { (success) in
-                if success {
-                    print("Yay! Access Token.")
-                } else {
-                    print("Bummer. No success.")
+                if let authViewController = self.authController, let repoViewController = self.repoController {
+                    
+                    authViewController.dismissAuthController()
+                    repoViewController.update()
                 }
             }
         }
@@ -57,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         if let token = UserDefaults.standard.getAccessToken() {
-            print(token)
+            print("Access Token is: \(token)")
         } else {
             presentAuthController()
         }
