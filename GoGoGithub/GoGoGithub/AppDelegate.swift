@@ -15,14 +15,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     var authController: GitHubAuthController?
-    
-    var repoController: RepoViewController?    
+    var repoController: RepoViewController?
 
+    func presentAuthController() {
+        if let repoViewController = self.window?.rootViewController as? RepoViewController, let storyboard = repoViewController.storyboard {
+            
+            if let authViewController = storyboard.instantiateViewController(withIdentifier: GitHubAuthController.identifier) as? GitHubAuthController {
+                
+                repoViewController.addChildViewController(authViewController)
+                repoViewController.view.addSubview(authViewController.view)
+                
+            }
+            
+        }
+    }
+    
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
 
-        let code = try? GitHub.shared.getCodeFrom(url: url)
+//        let code = try? GitHub.shared.getCodeFrom(url: url)
         
-        print(code ?? "No code found.")
+//        print(code ?? "No code found.")
         
         if let access_token = UserDefaults.standard.getAccessToken() {
             print("Login unnecessary: Access token \(access_token) already exists!")
