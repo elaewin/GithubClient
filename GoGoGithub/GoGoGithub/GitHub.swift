@@ -11,6 +11,7 @@ import UIKit
 let kOAuthBaseURLString = "https://github.com/login/oauth/"
 
 typealias GitHubOAuthCompletion = (Bool) -> ()
+typealias GetReposCompletion = ([Repository]?) -> ()
 
 enum GitHubAuthError: Error {
     case extractingCode(String)
@@ -25,7 +26,21 @@ class GitHub {
     
     static let shared = GitHub()
     
-    private init() {}
+    private var session: URLSession
+    private var components: URLComponents
+    
+    private init() {
+        self.session = URLSession(configuration: .default)
+        self.components = URLComponents()
+        
+        self.components.scheme = "https"
+        self.components.host = "api.github.com"
+        
+        if let token = UserDefaults.standard.getAccessToken() {
+            let tokenQueryItem = URLQueryItem(name: "access_token", value: token)
+            self.components.queryItems = [tokenQueryItem]
+        }
+    }
     
     func oAuthRequestWith(parameters: [String: String]) {
         var parametersString = ""
@@ -101,5 +116,24 @@ class GitHub {
             print(error)
             returnToMainWith(success: false)
         }
+    }
+    
+    func getRepos(completion: @escaping GetReposCompletion) {
+        
+        func returnToMainWith(results: [Repository]?) {
+            OperationQueue.main.addOperation {
+                completion(results)
+            }
+        }
+     
+        self.components.path = "/user/repos"
+        
+        guard let url = self.components.url else { returnToMainWith(results: nil); return }
+        
+        self.session.dataTask(with: url) { (data, response, error) in
+            
+            
+            
+        }.resume()
     }
 }
