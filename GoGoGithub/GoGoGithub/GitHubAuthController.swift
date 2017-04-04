@@ -15,13 +15,19 @@ class GitHubAuthController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if (UserDefaults.standard.getAccessToken() != nil) {
-            loginButton.isEnabled = false
-            loginButton.backgroundColor = UIColor.lightGray
-        }
         // Do any additional setup after loading the view.
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if (UserDefaults.standard.getAccessToken() != nil) {
+            print("token is not nil.")
+            loginButton.isEnabled = false
+            loginButton.backgroundColor = UIColor.lightGray
+        }
+
+    }
     
     @IBAction func printTokenPressed(_ sender: UIButton) {
         if let token = UserDefaults.standard.getAccessToken() {
@@ -29,13 +35,11 @@ class GitHubAuthController: UIViewController {
         } else {
             print("No token found!")
         }
-        
-        
     }
 
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         
-        let parameters = ["scope": "email,user"]
+        let parameters = ["scope": "email,user,repo"]
         
         GitHub.shared.oAuthRequestWith(parameters: parameters)
         

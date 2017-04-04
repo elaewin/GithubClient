@@ -20,11 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print(code ?? "No code found.")
         
-        GitHub.shared.tokenRequestFor(url: url, saveOption: .userDefaults) { (success) in
-            if success {
-                print("Yay! Access Token.")
-            } else {
-                print("Bummer. No success.")
+        if let access_token = UserDefaults.standard.getAccessToken() {
+            print("Login unnecessary: Access token \(access_token) already exists!")
+        } else {
+            GitHub.shared.tokenRequestFor(url: url, saveOption: .userDefaults) { (success) in
+                if success {
+                    print("Yay! Access Token.")
+                } else {
+                    print("Bummer. No success.")
+                }
             }
         }
         

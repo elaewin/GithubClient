@@ -84,9 +84,11 @@ class GitHub {
                             for component in components {
                                 if component.contains("access_token") {
                                     let token = component.components(separatedBy: "=").last!
-                                    print("Token is: \(token)")
                                     let success = UserDefaults.standard.save(accessToken: token)
-                                    returnToMainWith(success: success)
+                                    if success {
+                                        print("Access token saved.")
+                                        returnToMainWith(success: success)
+                                    }
                                 }
                             }
                         } else {
