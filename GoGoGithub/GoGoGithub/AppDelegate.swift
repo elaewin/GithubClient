@@ -25,8 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 repoViewController.addChildViewController(authViewController)
                 repoViewController.view.addSubview(authViewController.view)
                 
+                authViewController.didMove(toParentViewController: repoViewController)
+                
+                self.authController = authViewController
+                self.repoController = repoViewController
             }
-            
         }
     }
     
@@ -52,7 +55,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        if let token = UserDefaults.standard.getAccessToken() {
+            print(token)
+        } else {
+            presentAuthController()
+        }
+        
         return true
     }
 

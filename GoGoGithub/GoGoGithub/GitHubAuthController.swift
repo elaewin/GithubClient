@@ -30,6 +30,7 @@ class GitHubAuthController: UIViewController {
     }
     
     @IBAction func printTokenPressed(_ sender: UIButton) {
+        
         if let token = UserDefaults.standard.getAccessToken() {
             print("Access Token is: \(token)")
         } else {
@@ -40,8 +41,13 @@ class GitHubAuthController: UIViewController {
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         
         let parameters = ["scope": "email,user,repo"]
-        
         GitHub.shared.oAuthRequestWith(parameters: parameters)
         
+    }
+    
+    func dismissAuthController() {
+        
+        self.view.removeFromSuperview()
+        self.removeFromParentViewController()
     }
 }
