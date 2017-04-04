@@ -14,6 +14,7 @@ typealias GitHubOAuthCompletion = (Bool) -> ()
 
 enum GitHubAuthError: Error {
     case extractingCode(String)
+    case gettingAccessToken(String)
 }
 
 enum SaveOptions {
@@ -73,22 +74,30 @@ class GitHub {
                     guard let data = data else { returnToMainWith(success: false); return }
                     
                     if let dataString = String(data: data, encoding: .utf8) {
-                        print("My token is: \(dataString)")
+                        print("My data string is: \(dataString)")
                         
-                        let success = UserDefaults.standard.save(accessToken: dataString)
-                        
-                        returnToMainWith(success: success)
+                        if dataString.contains("access_token") {
+                            
+                            let components = dataString.components(separatedBy: "&")
+                            print(components.count)
+                            
+                            for component in components {
+                                if component.contains("access_token") {
+                                    let token = component.components(separatedBy: "=").last!
+                                    print("Token is: \(token)")
+                                    let success = UserDefaults.standard.save(accessToken: token)
+                                    returnToMainWith(success: success)
+                                }
+                            }
+                        } else {
+                            returnToMainWith(success: false)
+                        }
                     }
-                    
                 }).resume()
             }
-            
         } catch {
             print(error)
             returnToMainWith(success: false)
         }
-        
-        
-        
     }
 }
