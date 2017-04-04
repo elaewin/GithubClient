@@ -16,6 +16,7 @@
 		555C1AE71E92CE4F00C8EE95 /* GitHubAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C1AE61E92CE4F00C8EE95 /* GitHubAuthController.swift */; };
 		555C1AE91E92EC0100C8EE95 /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C1AE81E92EC0100C8EE95 /* FoundationExtensions.swift */; };
 		55D9BB811E940C150002FF3E /* RepoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D9BB801E940C150002FF3E /* RepoViewController.swift */; };
+		55D9BB831E940D580002FF3E /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D9BB821E940D580002FF3E /* UIExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		555C1AE61E92CE4F00C8EE95 /* GitHubAuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAuthController.swift; sourceTree = "<group>"; };
 		555C1AE81E92EC0100C8EE95 /* FoundationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
 		55D9BB801E940C150002FF3E /* RepoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoViewController.swift; sourceTree = "<group>"; };
+		55D9BB821E940D580002FF3E /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 		55D9BB731E9400B60002FF3E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				55D9BB821E940D580002FF3E /* UIExtensions.swift */,
 				555C1AE81E92EC0100C8EE95 /* FoundationExtensions.swift */,
 			);
 			name = Extensions;
@@ -190,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				555C1AE31E92C9C000C8EE95 /* GitHub.swift in Sources */,
+				55D9BB831E940D580002FF3E /* UIExtensions.swift in Sources */,
 				555C1AE91E92EC0100C8EE95 /* FoundationExtensions.swift in Sources */,
 				55D9BB811E940C150002FF3E /* RepoViewController.swift in Sources */,
 				555C1AE51E92CA0900C8EE95 /* Credentials.swift in Sources */,
