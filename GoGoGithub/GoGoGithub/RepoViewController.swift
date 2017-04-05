@@ -22,12 +22,20 @@ class RepoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
+        setUpTableView()
         
         update()
         // Do any additional setup after loading the view.
     }
+    
+    func setUpTableView() {
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        
+        self.tableView.estimatedRowHeight = 50
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+    }
+
 
     func update() {
         GitHub.shared.getRepos { (repositories) in

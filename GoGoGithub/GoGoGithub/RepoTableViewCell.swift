@@ -16,6 +16,16 @@ class RepoTableViewCell: UITableViewCell {
     
     @IBOutlet weak var repoDescriptionLabel: UILabel!
     
-    
+    var repo: Repository! {
+        didSet {
+            self.repoNameLabel.text = repo.name
+            if repo.language != nil {
+                self.repoLanguageLabel.text = "Language: \(String(describing: repo.language))"
+            }
+            if repo.description != nil {
+                self.repoDescriptionLabel.text = "\(String(describing: repo.description))"
+            }
+        }
+    }
     
 }
