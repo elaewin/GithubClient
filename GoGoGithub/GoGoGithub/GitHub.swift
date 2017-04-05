@@ -35,11 +35,6 @@ class GitHub {
         
         self.components.scheme = "https"
         self.components.host = "api.github.com"
-        
-        if let token = UserDefaults.standard.getAccessToken() {
-            let tokenQueryItem = URLQueryItem(name: "access_token", value: token)
-            self.components.queryItems = [tokenQueryItem]
-        }
     }
     
     func oAuthRequestWith(parameters: [String: String]) {
@@ -128,10 +123,42 @@ class GitHub {
      
         self.components.path = "/user/repos"
         
+        if let token = UserDefaults.standard.getAccessToken() {
+            let tokenQueryItem = URLQueryItem(name: "access_token", value: token)
+            self.components.queryItems = [tokenQueryItem]
+        }
+        
+        let typeQueryItem = URLQueryItem(name: "type", value: "owner")
+        self.components.queryItems?.append(typeQueryItem)
+        
         guard let url = self.components.url else { returnToMainWith(results: nil); return }
         
         self.session.dataTask(with: url) { (data, response, error) in
             
+            if error != nil { returnToMainWith(results: nil); return }
+            
+            if let data = data {
+                var repositories = [Repository]()
+                
+                do {
+                    if let rootJSON = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String: Any]] {
+                        
+                        print("JSON serialization succeeded.")
+                        print("Name type: \(type(of: rootJSON[0]["name"]))")
+                        
+                        for repositoryJSON in rootJSON {
+                            if let repo = Repository(json: repositoryJSON) {
+                                print("Repo name: \(repo.name), Description: \(repo.description!), language: \(repo.language!)")
+                                repositories.append(repo)
+                            }
+                        }
+                        print(repositories.count)
+                        returnToMainWith(results: repositories)
+                    }
+                } catch {
+                    print("serialization failed.")
+                }
+            }
             
             
         }.resume()

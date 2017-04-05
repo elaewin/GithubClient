@@ -18,6 +18,7 @@
 		55D9BB811E940C150002FF3E /* RepoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D9BB801E940C150002FF3E /* RepoViewController.swift */; };
 		55D9BB831E940D580002FF3E /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D9BB821E940D580002FF3E /* UIExtensions.swift */; };
 		55D9BB851E94195A0002FF3E /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D9BB841E94195A0002FF3E /* Repository.swift */; };
+		55D9BB891E9476FD0002FF3E /* RepoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D9BB881E9476FD0002FF3E /* RepoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		55D9BB801E940C150002FF3E /* RepoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoViewController.swift; sourceTree = "<group>"; };
 		55D9BB821E940D580002FF3E /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		55D9BB841E94195A0002FF3E /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		55D9BB881E9476FD0002FF3E /* RepoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		555C1AE11E92C97600C8EE95 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				55D9BB881E9476FD0002FF3E /* RepoTableViewCell.swift */,
 				55D9BB841E94195A0002FF3E /* Repository.swift */,
 				555C1AE21E92C9C000C8EE95 /* GitHub.swift */,
 			);
@@ -200,6 +203,7 @@
 				555C1AE91E92EC0100C8EE95 /* FoundationExtensions.swift in Sources */,
 				55D9BB851E94195A0002FF3E /* Repository.swift in Sources */,
 				55D9BB811E940C150002FF3E /* RepoViewController.swift in Sources */,
+				55D9BB891E9476FD0002FF3E /* RepoTableViewCell.swift in Sources */,
 				555C1AE51E92CA0900C8EE95 /* Credentials.swift in Sources */,
 				555C1AE71E92CE4F00C8EE95 /* GitHubAuthController.swift in Sources */,
 				555C1ACB1E92B09C00C8EE95 /* AppDelegate.swift in Sources */,
