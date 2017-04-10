@@ -9,13 +9,57 @@
 import UIKit
 
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    var authController: GitHubAuthController?
+    var repoController: RepoViewController?
 
+    func presentAuthController() {
+        if let repoViewController = self.window?.rootViewController as? RepoViewController, let storyboard = repoViewController.storyboard {
+            
+            if let authViewController = storyboard.instantiateViewController(withIdentifier: GitHubAuthController.identifier) as? GitHubAuthController {
+                
+                repoViewController.addChildViewController(authViewController)
+                repoViewController.view.addSubview(authViewController.view)
+                
+                authViewController.didMove(toParentViewController: repoViewController)
+                
+                self.authController = authViewController
+                self.repoController = repoViewController
+            }
+        }
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+
+//        let code = try? GitHub.shared.getCodeFrom(url: url)
+        
+        if let access_token = UserDefaults.standard.getAccessToken() {
+            print("Login unnecessary: Access token \(access_token) already exists!")
+        } else {
+            GitHub.shared.tokenRequestFor(url: url, saveOption: .userDefaults) { (success) in
+                if let authViewController = self.authController, let repoViewController = self.repoController {
+                    
+                    authViewController.dismissAuthController()
+                    repoViewController.update()
+                }
+            }
+        }
+        
+        return true
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        if let token = UserDefaults.standard.getAccessToken() {
+            print("Access Token is: \(token)")
+        } else {
+            presentAuthController()
+        }
+        
         return true
     }
 
