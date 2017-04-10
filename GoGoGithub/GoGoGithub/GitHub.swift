@@ -148,7 +148,6 @@ class GitHub {
                         
                         for repositoryJSON in rootJSON {
                             if let repo = Repository(json: repositoryJSON) {
-                                print("Repo name: \(repo.name), Description: \(repo.description!), language: \(repo.language!)")
                                 repositories.append(repo)
                             }
                         }
